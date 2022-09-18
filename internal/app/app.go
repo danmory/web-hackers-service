@@ -1,6 +1,7 @@
 package app
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -16,7 +17,8 @@ func Run() {
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, os.Interrupt)
 	go func() {
-		if err := app.Listen(os.Getenv("APP_ADDRESS")); err != nil && err != http.ErrServerClosed {
+		address := fmt.Sprintf("%v:%v", os.Getenv("APP_HOST"), os.Getenv("APP_PORT"))
+		if err := app.Listen(address); err != nil && err != http.ErrServerClosed {
 			log.Fatal(err)
 		}
 	}()

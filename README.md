@@ -9,9 +9,11 @@
 3. Initialize .env file with the following configuration
 
     ```dotenv
-        APP_ADDRESS=:8010
-        REDIS_ADDRESS=db:6379
-        REDIS_PASSWORD=yourpassword
+        APP_HOST=0.0.0.0
+        APP_PORT=8010
+        REDIS_HOST=db
+        REDIS_PORT=6379
+        REDIS_PASSWORD=123456
     ```
 
 4. Run the command

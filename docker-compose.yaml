@@ -6,7 +6,7 @@ services:
     env_file:
       - .env
     ports:
-      - '6379:6379'
+      - $REDIS_PORT:$REDIS_PORT
     command: redis-server --save 20 1 --loglevel warning --requirepass "${REDIS_PASSWORD}"
     volumes: 
       - hackers_cache:/data
@@ -15,7 +15,7 @@ services:
     env_file:
       - .env
     ports:
-      - "8010:8010"
+      - $APP_PORT:$APP_PORT
     depends_on:
       - db
 volumes:
