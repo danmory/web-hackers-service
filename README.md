@@ -28,6 +28,23 @@
 
     `` $ curl -s http://localhost:8010/json/hackers |json_pp ``
 
+## Load testing with Yandex Tank
+
+Load testing was carried out using Yandex Tank:
+
+The service can withstand about 20,000 RPS
+on Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz and 16 GB RAM.
+
+Try it out(config file is *load.yaml*):
+
+```bash
+    docker run \
+        -v $(pwd):/var/loadtest \
+        -v $SSH_AUTH_SOCK:/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent \
+        --net host \
+        -it direvius/yandex-tank
+```
+
 ## Author
 
 Danila Moriakov(d.moriakov@gmail.com)
