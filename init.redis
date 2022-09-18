@@ -1,0 +1,6 @@
+zadd hackers 1953 "Richard Stallman"  
+zadd hackers 1940 "Alan Kay"
+zadd hackers 1965 "Yukihiro Matsumoto"
+zadd hackers 1916 "Claude Shannon"
+zadd hackers 1969 "Linus Torvalds"
+zadd hackers 1912 "Alan Turing"

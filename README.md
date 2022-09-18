@@ -13,7 +13,7 @@
         APP_PORT=8010
         REDIS_HOST=db
         REDIS_PORT=6379
-        REDIS_PASSWORD=123456
+        REDIS_PASSWORD=yourpassword
     ```
 
 4. Run the command
@@ -22,20 +22,9 @@
 
 5. Populate Redis
 
-    `` $ docker exec -it web-hackers-service_db_1 redis-cli -a yourpassword ``
+    `` $ docker exec -i web-hackers-service_db_1 redis-cli -a youpassword < init.redis ``
 
-    Then run in the opened command line the following:
-
-    ```redis
-        zadd hackers 1953 "Richard Stallman"  
-        zadd hackers 1940 "Alan Kay"
-        zadd hackers 1965 "Yukihiro Matsumoto"
-        zadd hackers 1916 "Claude Shannon"
-        zadd hackers 1969 "Linus Torvalds"
-        zadd hackers 1912 "Alan Turing"
-    ```
-
-6. Exit redis-cli and run:
+6. Check result:
 
     `` $ curl -s http://localhost:8010/json/hackers |json_pp ``
 
