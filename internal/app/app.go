@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/signal"
 
+	"github.com/danmory/web-hackers-service/internal/storage/redis"
 	appHTTP "github.com/danmory/web-hackers-service/internal/transport/http"
 	"github.com/goccy/go-json"
 	"github.com/gofiber/fiber/v2"
@@ -24,6 +25,9 @@ func Run() {
 	}()
 	<-c
 	if err := app.Shutdown(); err != nil {
+		log.Panic(err)
+	}
+	if err := redis.CloseDB(); err != nil {
 		log.Panic(err)
 	}
 }

@@ -20,3 +20,7 @@ func GetDB() *redis.Client {
 	}
 	return rdb
 }
+
+func CloseDB() error {
+	return rdb.Close()
+}
